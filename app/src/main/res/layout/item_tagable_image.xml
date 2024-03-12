@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:layout_height="match_parent"
+	tools:layout_width="match_parent"
+	tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+	<ImageView
+		android:id="@+id/item_tagable_image_image_thumbnail"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:src="@drawable/sample_1" />
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/item_tagable_image_layout_chips"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="@+id/item_tagable_image_image_thumbnail"
+		app:layout_constraintEnd_toEndOf="@+id/item_tagable_image_image_thumbnail"
+		app:layout_constraintStart_toStartOf="@+id/item_tagable_image_image_thumbnail"
+		app:layout_constraintTop_toTopOf="@+id/item_tagable_image_image_thumbnail" />
+
+</merge>

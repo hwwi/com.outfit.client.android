@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/layout_appbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<com.google.android.material.appbar.CollapsingToolbarLayout
+				android:id="@+id/layout_toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="?attr/colorOnPrimary"
+				app:contentScrim="?attr/colorOnPrimary"
+				app:layout_scrollFlags="scroll|exitUntilCollapsed"
+				app:titleEnabled="false">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<ImageView
+						android:id="@+id/image_closet_background"
+						style="@style/Widget.Outfit.Profile.Fit"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent"
+						tools:src="@drawable/sample_1" />
+
+					<ImageView
+						android:layout_width="0dp"
+						android:layout_height="0dp"
+						android:src="@drawable/gradient_closet_profile_background"
+						app:layout_constraintBottom_toBottomOf="@+id/image_closet_background"
+						app:layout_constraintEnd_toEndOf="@+id/image_closet_background"
+						app:layout_constraintStart_toStartOf="@+id/image_closet_background"
+						app:layout_constraintTop_toTopOf="@+id/image_closet_background" />
+
+					<ImageView
+						android:id="@+id/image_person_profile"
+						style="@style/Widget.Outfit.Profile.Big"
+						android:layout_margin="8dp"
+						app:layout_constraintBottom_toBottomOf="@+id/flow_profile_count"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="@+id/text_person_name" />
+
+					<TextView
+						android:id="@+id/text_person_name"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:textAppearance="@style/TextAppearance.Outfit.Headline5"
+						android:textColor="?attr/colorOnSurface"
+						app:layout_constraintBottom_toBottomOf="@+id/image_closet_background"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/image_person_profile"
+						tools:ignore="MissingConstraints"
+						tools:text="very_long_person_name" />
+
+
+					<androidx.constraintlayout.helper.widget.Flow
+						android:id="@+id/flow_profile_count"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						app:constraint_referenced_ids="text_shots_count,text_followers_count,text_followings_count"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@+id/image_person_profile"
+						app:layout_constraintTop_toBottomOf="@+id/image_closet_background" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/text_shots_count"
+						style="@style/Widget.MaterialComponents.Button.NonelinedButton"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:text="@string/str_shot"
+						android:textAppearance="@style/TextAppearance.Outfit.Body2"
+						android:textColor="?attr/colorOnSurface"
+						tools:ignore="MissingConstraints" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/text_followers_count"
+						style="@style/Widget.MaterialComponents.Button.NonelinedButton"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:text="@string/str_follower"
+						android:textAppearance="@style/TextAppearance.Outfit.Body2"
+						android:textColor="?attr/colorOnSurface"
+						tools:ignore="MissingConstraints" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/text_followings_count"
+						style="@style/Widget.MaterialComponents.Button.NonelinedButton"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:text="@string/str_following"
+						android:textAppearance="@style/TextAppearance.Outfit.Body2"
+						android:textColor="?attr/colorOnSurface"
+						tools:ignore="MissingConstraints" />
+
+					<TextView
+						android:id="@+id/text_person_biography"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="8dp"
+						android:autoLink="web"
+						android:maxLines="5"
+						android:textAppearance="@style/TextAppearance.Outfit.Caption"
+						app:layout_constraintTop_toBottomOf="@+id/flow_profile_count"
+						tools:text="Person comment#1\nPerson comment#2" />
+
+					<androidx.constraintlayout.widget.Group
+						android:id="@+id/group_profile_button"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						app:constraint_referenced_ids="button_toggle_follow,button_option" />
+
+					<androidx.constraintlayout.helper.widget.Flow
+						android:id="@+id/flow_profile_button"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						app:constraint_referenced_ids="button_toggle_follow,button_option"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toBottomOf="@+id/text_person_biography" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/button_toggle_follow"
+						style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:text="@string/str_follow"
+						app:layout_constraintVertical_weight="1"
+						tools:ignore="MissingConstraints" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/button_option"
+						style="@style/Widget.MaterialComponents.Button.IconButton"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						app:icon="@drawable/dots_vertical"
+						tools:ignore="MissingConstraints" />
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+				<androidx.appcompat.widget.Toolbar
+					android:id="@+id/toolbar"
+					android:layout_width="match_parent"
+					android:layout_height="?attr/actionBarSize"
+					android:background="@null"
+					app:layout_collapseMode="pin"
+					app:titleTextColor="?attr/colorOnBackground" />
+			</com.google.android.material.appbar.CollapsingToolbarLayout>
+
+		</com.google.android.material.appbar.AppBarLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+			<com.google.android.material.tabs.TabLayout
+				android:id="@+id/layout_tab"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				tools:visibility="visible">
+
+				<com.google.android.material.tabs.TabItem
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:icon="@drawable/ic_baseline_lock_open_24" />
+
+				<com.google.android.material.tabs.TabItem
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:icon="@drawable/ic_baseline_lock_24" />
+			</com.google.android.material.tabs.TabLayout>
+
+			<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+				android:id="@+id/swipe_refresh"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<com.outfit.client.android.widget.ErrorView
+						android:id="@+id/error"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
+
+					<com.airbnb.epoxy.EpoxyRecyclerView
+						android:id="@+id/shot_list"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:clipToPadding="false"
+						app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+						app:spanCount="3"
+						tools:listitem="@layout/item_thumbnail" />
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+			</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+		</LinearLayout>
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

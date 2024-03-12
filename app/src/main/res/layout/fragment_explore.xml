@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/explore_appbar_layout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<com.google.android.material.appbar.CollapsingToolbarLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+				app:titleEnabled="false">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<include
+						android:id="@+id/merge_toolbar"
+						layout="@layout/merge_toolbar" />
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</com.google.android.material.appbar.CollapsingToolbarLayout>
+		</com.google.android.material.appbar.AppBarLayout>
+
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/swipe_refresh"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+			<com.airbnb.epoxy.EpoxyRecyclerView
+				android:id="@+id/shot_list"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+				app:spanCount="3"
+				tools:listitem="@layout/item_thumbnail" />
+
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

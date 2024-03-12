@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:gravity="center"
+	tools:layout_height="wrap_content"
+	tools:layout_width="match_parent"
+	tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+	<ImageView
+		android:id="@+id/image_comment_person_profile"
+		style="@style/Widget.Outfit.Profile.Small"
+		android:layout_marginStart="4dp"
+		android:layout_marginTop="4dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/text_comment_html"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="4dp"
+		android:autoLink="web"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/image_comment_person_profile"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="comment text\ncomment text\ncomment text\ncomment text\ncomment text\ncomment text\ncomment text" />
+
+	<LinearLayout
+		android:id="@+id/flow_comment_footer"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		app:layout_constraintEnd_toEndOf="@+id/text_comment_html"
+		app:layout_constraintStart_toStartOf="@+id/text_comment_html"
+		app:layout_constraintTop_toBottomOf="@+id/text_comment_html">
+
+		<TextView
+			android:id="@+id/text_comment_created_at"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			tools:text="2019-08-13" />
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_weight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/button_comment_reply"
+			style="@style/Widget.MaterialComponents.Button.TextButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="@dimen/button_minimize_width"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			android:textColor="?attr/colorOnBackground"
+			app:icon="@drawable/ic_reply_outline" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/button_comment_like"
+			style="@style/Widget.MaterialComponents.Button.TextButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minWidth="@dimen/button_minimize_width"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			android:textColor="?attr/colorOnBackground"
+			app:icon="@drawable/ic_heart_outline" />
+
+		<ImageButton
+			android:id="@+id/button_comment_menu"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:srcCompat="@drawable/ic_menu" />
+	</LinearLayout>
+
+</merge>

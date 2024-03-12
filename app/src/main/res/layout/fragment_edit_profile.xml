@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="kotlin.Unit" />
+
+		<import type="android.view.View" />
+
+		<import type="androidx.lifecycle.LiveData" />
+
+		<import type="com.outfit.client.android.data.NetworkState" />
+
+		<variable
+			name="networkState"
+			type="LiveData&lt;NetworkState&lt;Unit>>" />
+
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<include
+			android:id="@+id/merge_toolbar"
+			layout="@layout/merge_toolbar"
+			app:networkState="@{networkState}" />
+
+		<ImageView
+			android:id="@+id/image_closet_background"
+			style="@style/Widget.Outfit.Profile.Fit"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/layout_toolbar"
+			tools:src="@drawable/sample_1" />
+
+		<ImageView
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:src="@drawable/gradient_closet_profile_background"
+			app:layout_constraintBottom_toBottomOf="@+id/image_closet_background"
+			app:layout_constraintEnd_toEndOf="@+id/image_closet_background"
+			app:layout_constraintStart_toStartOf="@+id/image_closet_background"
+			app:layout_constraintTop_toTopOf="@+id/image_closet_background" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/button_change_closet_background"
+			style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="4dp"
+			android:text="@string/str_change_background"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			android:textColor="?colorPrimaryVariant"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="@+id/image_closet_background" />
+
+		<ImageView
+			android:id="@+id/image_person_profile"
+			style="@style/Widget.Outfit.Profile.Big"
+			android:layout_margin="8dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="@+id/text_person_name"
+			tools:src="@drawable/ic_person_24dp" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/button_person_profile"
+			style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/str_change_profile_photo"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			android:textColor="?colorPrimaryVariant"
+			app:layout_constraintStart_toStartOf="@+id/image_person_profile"
+			app:layout_constraintTop_toBottomOf="@+id/image_person_profile" />
+
+
+		<TextView
+			android:id="@+id/text_person_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/TextAppearance.Outfit.Headline5"
+			app:layout_constraintBottom_toBottomOf="@+id/image_closet_background"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/image_person_profile"
+			tools:text="very_long_person_name" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/button_change_person_name"
+			style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/str_change_name"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			android:textColor="?colorPrimaryVariant"
+			app:layout_constraintEnd_toEndOf="@+id/text_person_name"
+			app:layout_constraintStart_toStartOf="@+id/text_person_name"
+			app:layout_constraintTop_toBottomOf="@+id/image_closet_background" />
+
+		<com.google.android.material.textfield.TextInputLayout
+			android:id="@+id/layout_person_biography"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:layout_marginBottom="8dp"
+			app:disabledWhen="@{networkState instanceof NetworkState.Fetching}"
+			app:layout_constraintTop_toBottomOf="@+id/button_person_profile">
+
+			<com.google.android.material.textfield.TextInputEditText
+				android:id="@+id/edit_person_biography"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/str_biography"
+				android:inputType="textMultiLine"
+				android:maxLines="5"
+				android:textAppearance="@style/TextAppearance.Outfit.Caption"
+				tools:text="Person comment#1\nPerson comment#2" />
+
+		</com.google.android.material.textfield.TextInputLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

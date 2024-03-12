@@ -1,0 +1,84 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<!--Components-->
+
+	<!--Bottom Sheets-->
+	<style name="ThemeOverlay.Outfit.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog" tools:ignore="NewApi">
+		<item name="android:windowIsFloating">false</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:windowAnimationStyle">@style/Animation.Outfit.BottomSheet.Modal</item>
+		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="bottomSheetStyle">@style/Widget.Outfit.BottomSheet.Modal</item>
+		<item name="android:navigationBarColor">?attr/colorSurface</item>
+		<item name="android:navigationBarDividerColor">@android:color/transparent</item>
+	</style>
+
+	<style name="Widget.Outfit.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
+		<item name="shapeAppearanceOverlay">?shapeAppearanceLargeComponent</item>
+	</style>
+
+	<!--Navigation Drawer-->
+	<style name="Widget.Outfit.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+		<item name="itemTextAppearance">?textAppearanceBody2</item>
+	</style>
+
+	<style name="Widget" />
+
+	<style name="Widget.Outfit" />
+
+	<style name="Widget.Outfit.IconButton">
+		<item name="android:background">@drawable/background_icon_button</item>
+		<item name="android:padding">8dp</item>
+	</style>
+
+	<style name="Widget.Outfit.Button" parent="Widget.MaterialComponents.Button">
+		<item name="android:textAllCaps">false</item>
+	</style>
+
+	<style name="Widget.Outfit.Profile.Small" parent="Widget.Outfit">
+		<item name="android:layout_width">48dp</item>
+		<item name="android:layout_height">48dp</item>
+		<item name="android:src">@drawable/ic_person_24dp</item>
+	</style>
+
+	<style name="Widget.Outfit.Profile.Big" parent="Widget.Outfit.Profile.Small">
+		<item name="android:layout_width">72dp</item>
+		<item name="android:layout_height">72dp</item>
+	</style>
+
+	<style name="Widget.Outfit.Profile.Fit" parent="Widget.Outfit">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">0dp</item>
+		<item name="android:scaleType">centerCrop</item>
+		<item name="android:adjustViewBounds">true</item>
+		<item name="layout_constraintDimensionRatio">5:4</item>
+	</style>
+
+	<style name="Widget.Outfit.TextInputLayout.OutlinedBox.Dense" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+		<item name="android:paddingStart">@dimen/text_input_layout_horizontal_margin</item>
+		<item name="android:paddingLeft">@dimen/text_input_layout_horizontal_margin</item>
+		<item name="android:paddingEnd">@dimen/text_input_layout_horizontal_margin</item>
+		<item name="android:paddingRight">@dimen/text_input_layout_horizontal_margin</item>
+	</style>
+
+	<style name="Widget.MaterialComponents.Button.TextButton.Colored" parent="Widget.MaterialComponents.Button.TextButton">
+		<item name="android:textColor">@color/mtrl_text_btn_text_color_selector_colored</item>
+		<item name="iconTint">@color/mtrl_text_btn_text_color_selector_colored</item>
+	</style>
+
+	<style name="Widget.MaterialComponents.Button.NonelinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+		<item name="android:minWidth">0dp</item>
+		<item name="strokeColor">@color/transparent</item>
+	</style>
+
+	<style name="Widget.MaterialComponents.Button.IconButton" parent="Widget.MaterialComponents.Button.TextButton">
+		<item name="android:minWidth">0dp</item>
+	</style>
+
+	<style name="Widget.MaterialComponents.Button.IconButton.Colored">
+		<item name="android:textColor">@color/mtrl_text_btn_text_color_selector_colored</item>
+		<item name="iconTint">@color/mtrl_text_btn_text_color_selector_colored</item>
+	</style>
+
+
+</resources>

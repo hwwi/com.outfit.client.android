@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<item name="tag_tag" type="id"/>
+	<item name="payload_selection" type="id" />
+	<item name="list_reply" type="id" />
+</resources>

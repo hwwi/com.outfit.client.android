@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main_nav"
+	app:startDestination="@id/nav_authentication">
+
+	<action
+		android:id="@+id/action_to_main_nav"
+		app:destination="@id/main_nav"
+		app:popUpTo="@id/main_nav" />
+	<action
+		android:id="@+id/action_to_closetFragment"
+		app:destination="@id/closetFragment" />
+
+	<action
+		android:id="@+id/action_to_viewItemTagFragment"
+		app:destination="@id/viewItemTagFragment" />
+	<action
+		android:id="@+id/action_to_deleteShotConfirmDialog"
+		app:destination="@id/deleteShotConfirmDialog" />
+	<action
+		android:id="@+id/action_to_deleteCommentConfirmDialog"
+		app:destination="@id/deleteCommentConfirmDialog" />
+
+	<navigation
+		android:id="@+id/nav_authentication"
+		app:startDestination="@id/signInFragment">
+		<fragment
+			android:id="@+id/signInFragment"
+			android:name="com.outfit.client.android.ui.authentication.signin.SignInFragment"
+			tools:layout="@layout/fragment_sign_in">
+			<action
+				android:id="@+id/action_signInFragment_to_signUpFragment"
+				app:destination="@id/signUpFragment" />
+			<action
+				android:id="@+id/action_signInFragment_to_resetPasswordFragment"
+				app:destination="@id/resetPasswordFragment" />
+			<action
+				android:id="@+id/action_signInFragment_to_exploreFragment"
+				app:destination="@id/exploreFragment"
+				app:popUpTo="@id/nav_authentication"
+				app:popUpToInclusive="true" />
+		</fragment>
+
+		<fragment
+			android:id="@+id/resetPasswordFragment"
+			android:name="com.outfit.client.android.ui.authentication.resetpassword.ResetPasswordFragment"
+			android:label="@string/title_reset_password">
+			<action
+				android:id="@+id/action_resetPasswordFragment_to_anonymous_verification_navigation"
+				app:destination="@id/anonymous_verification_navigation" />
+		</fragment>
+		<fragment
+			android:id="@+id/signUpFragment"
+			android:name="com.outfit.client.android.ui.authentication.signup.SignUpFragment"
+			tools:layout="@layout/fragment_sign_up">
+			<action
+				android:id="@+id/action_signUpFragment_to_anonymous_verification_navigation"
+				app:destination="@id/anonymous_verification_navigation" />
+
+		</fragment>
+	</navigation>
+
+	<fragment
+		android:id="@+id/exploreFragment"
+		android:name="com.outfit.client.android.ui.explore.ExploreFragment"
+		android:label="@string/app_name"
+		tools:layout="@layout/fragment_explore">
+		<action
+			android:id="@+id/action_exploreFragment_to_searchFragment"
+			app:destination="@id/searchFragment" />
+		<action
+			android:id="@+id/action_exploreFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+
+	</fragment>
+
+	<fragment
+		android:id="@+id/bookmarksFragment"
+		android:name="com.outfit.client.android.ui.bookmarks.BookmarksFragment"
+		android:label="@string/title_bookmarks"
+		tools:layout="@layout/fragment_bookmarks">
+		<action
+			android:id="@+id/action_bookmarksFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+
+	</fragment>
+
+	<fragment
+		android:id="@+id/subscriptionsFragment"
+		android:name="com.outfit.client.android.ui.subscriptions.SubscriptionsFragment"
+		android:label="@string/app_name">
+		<action
+			android:id="@+id/action_subscriptionsFragment_to_viewCommentsFragment"
+			app:destination="@id/viewCommentsFragment" />
+		<action
+			android:id="@+id/action_subscriptionsFragment_to_closetFragment"
+			app:destination="@id/closetFragment" />
+		<action
+			android:id="@+id/action_subscriptionsFragment_to_viewItemTagFragment"
+			app:destination="@id/viewItemTagFragment" />
+		<action
+			android:id="@+id/action_subscriptionsFragment_to_viewHashTagFragment"
+			app:destination="@id/viewHashTagFragment" />
+
+	</fragment>
+
+	<fragment
+		android:id="@+id/notificationsFragment"
+		android:name="com.outfit.client.android.ui.notifications.NotificationsFragment"
+		android:label="@string/app_name">
+
+		<action
+			android:id="@+id/action_notificationsFragment_to_closetFragment"
+			app:destination="@id/closetFragment" />
+
+		<action
+			android:id="@+id/action_notificationsFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+
+		<action
+			android:id="@+id/action_notificationsFragment_to_viewCommentsFragment"
+			app:destination="@id/viewCommentsFragment" />
+
+		<action
+			android:id="@+id/action_notificationsFragment_to_viewFollowFragment"
+			app:destination="@id/viewFollowFragment" />
+
+		<action
+			android:id="@+id/action_notificationsFragment_to_deleteNotificationConfirmDialog"
+			app:destination="@id/deleteNotificationConfirmDialog" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/closetFragment"
+		android:name="com.outfit.client.android.ui.closet.ClosetFragment"
+		tools:layout="@layout/fragment_closet">
+		<argument
+			android:name="personName"
+			app:argType="string"
+			app:nullable="true" />
+		<argument
+			android:name="nullablePersonId"
+			android:defaultValue="0L"
+			app:argType="long" />
+
+		<action
+			android:id="@+id/action_closetFragment_self"
+			app:destination="@id/closetFragment" />
+		<action
+			android:id="@+id/action_closetFragment_to_viewFollowFragment"
+			app:destination="@id/viewFollowFragment" />
+		<action
+			android:id="@+id/action_closetFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+
+	</fragment>
+
+	<navigation
+		android:id="@+id/post_navigation"
+		app:startDestination="@id/confirmFragment">
+
+		<fragment
+			android:id="@+id/confirmFragment"
+			android:name="com.outfit.client.android.ui.post.confirm.ConfirmFragment"
+			android:label="@string/nav_label_confirm"
+			tools:layout="@layout/fragment_post_tagging">
+			<action
+				android:id="@+id/action_confirmFragment_to_taggingFragment"
+				app:destination="@id/taggingFragment" />
+
+			<action
+				android:id="@+id/action_confirmFragment_to_selectImageNav"
+				app:destination="@id/selectImageNav" />
+		</fragment>
+		<fragment
+			android:id="@+id/taggingFragment"
+			android:name="com.outfit.client.android.ui.post.tagging.TaggingFragment"
+			android:label="@string/nav_label_tagging"
+			tools:layout="@layout/fragment_post_tagging">
+
+			<argument
+				android:name="filePaths"
+				app:argType="string[]" />
+			<argument
+				android:name="selectedUriPosition"
+				app:argType="integer" />
+			<action
+				android:id="@+id/action_taggingFragment_to_modifyItemTagDialog"
+				app:destination="@id/modifyItemTagDialog" />
+		</fragment>
+
+		<dialog
+			android:id="@+id/modifyItemTagDialog"
+			android:name="com.outfit.client.android.ui.post.modifyitemtag.ModifyItemTagDialog"
+			tools:layout="@layout/dialog_modify_item_tag">
+			<argument
+				android:name="file"
+				app:argType="java.io.File" />
+			<argument
+				android:name="x"
+				app:argType="float" />
+			<argument
+				android:name="y"
+				app:argType="float" />
+
+		</dialog>
+	</navigation>
+
+	<navigation
+		android:id="@+id/nav_account"
+		app:startDestination="@id/myAccountFragment">
+
+		<fragment
+			android:id="@+id/myAccountFragment"
+			android:name="com.outfit.client.android.ui.myaccount.MyAccountFragment"
+			android:label="@string/title_my_account">
+
+			<action
+				android:id="@+id/action_myAccountFragment_to_closetFragment"
+				app:destination="@id/closetFragment" />
+			<action
+				android:id="@+id/action_myAccountFragment_to_changePasswordFragment"
+				app:destination="@id/changePasswordFragment" />
+			<action
+				android:id="@+id/action_myAccountFragment_to_editProfileFragment"
+				app:destination="@id/editProfileFragment" />
+			<action
+				android:id="@+id/action_myAccountFragment_to_bookmarksFragment"
+				app:destination="@id/bookmarksFragment" />
+		</fragment>
+
+		<fragment
+			android:id="@+id/editProfileFragment"
+			android:name="com.outfit.client.android.ui.editprofile.EditProfileFragment"
+			android:label="@string/title_edit_profile">
+
+			<action
+				android:id="@+id/action_editProfileFragment_to_deleteViewerProfileImageDialog"
+				app:destination="@id/deleteViewerProfileImageDialog" />
+
+			<action
+				android:id="@+id/action_editProfileFragment_to_changeViewerProfileImageDialog"
+				app:destination="@id/changeViewerProfileImageDialog" />
+
+			<action
+				android:id="@+id/action_editProfileFragment_to_selectImageNav"
+				app:destination="@id/selectImageNav" />
+			<action
+				android:id="@+id/action_editProfileFragment_to_changeNameFragment"
+				app:destination="@id/changeNameFragment" />
+			<action
+				android:id="@+id/action_editProfileFragment_to_deleteViewerClosetBackgroundImageDialog"
+				app:destination="@id/deleteViewerClosetBackgroundImageDialog" />
+			<action
+				android:id="@+id/action_editProfileFragment_to_changeViewerClosetBackgroundImageDialog"
+				app:destination="@id/changeViewerClosetBackgroundImageDialog" />
+		</fragment>
+
+		<fragment
+			android:id="@+id/changePasswordFragment"
+			android:name="com.outfit.client.android.ui.changepassword.ChangePasswordFragment"
+			android:label="@string/title_change_password" />
+
+		<fragment
+			android:id="@+id/changeNameFragment"
+			android:name="com.outfit.client.android.ui.changename.ChangeNameFragment"
+			android:label="@string/title_change_name" />
+
+		<dialog
+			android:id="@+id/changeViewerProfileImageDialog"
+			android:name="com.outfit.client.android.ui.changeviewerprofileimage.ChangeViewerProfileImageDialog">
+			<argument
+				android:name="imageFilePath"
+				app:argType="string" />
+		</dialog>
+
+		<dialog
+			android:id="@+id/changeViewerClosetBackgroundImageDialog"
+			android:name="com.outfit.client.android.ui.changeviewerclosetbackgroundimage.ChangeViewerClosetBackgroundImageDialog">
+			<argument
+				android:name="imageFilePath"
+				app:argType="string" />
+		</dialog>
+
+		<dialog
+			android:id="@+id/deleteViewerProfileImageDialog"
+			android:name="com.outfit.client.android.ui.deleteviewerprofileimage.DeleteViewerProfileImageDialog">
+
+		</dialog>
+		<dialog
+			android:id="@+id/deleteViewerClosetBackgroundImageDialog"
+			android:name="com.outfit.client.android.ui.deleteviewerclosetbackgroundimage.DeleteViewerClosetBackgroundImageDialog">
+
+		</dialog>
+
+	</navigation>
+
+	<navigation
+		android:id="@+id/selectImageNav"
+		app:startDestination="@id/selectImageFragment">
+
+		<argument
+			android:name="purpose"
+			app:argType="com.outfit.client.android.data.SelectImagePurpose" />
+		<argument
+			android:name="popUpTo"
+			android:defaultValue="@null"
+			app:argType="com.outfit.client.android.data.PopUpTo"
+			app:nullable="true" />
+
+		<fragment
+			android:id="@+id/selectImageFragment"
+			android:name="com.outfit.client.android.ui.selectimage.selectimage.SelectImageFragment">
+			<argument
+				android:name="purpose"
+				app:argType="com.outfit.client.android.data.SelectImagePurpose" />
+			<argument
+				android:name="popUpTo"
+				android:defaultValue="@null"
+				app:argType="com.outfit.client.android.data.PopUpTo"
+				app:nullable="true" />
+
+			<action
+				android:id="@+id/action_selectImageFragment_to_editImageFragment"
+				app:destination="@id/editImageFragment" />
+		</fragment>
+		<fragment
+			android:id="@+id/editImageFragment"
+			android:name="com.outfit.client.android.ui.selectimage.editimage.EditImageFragment">
+			<argument
+				android:name="purpose"
+				app:argType="com.outfit.client.android.data.SelectImagePurpose" />
+			<argument
+				android:name="requestDestinationId"
+				app:argType="integer" />
+			<argument
+				android:name="uris"
+				app:argType="android.net.Uri[]" />
+		</fragment>
+	</navigation>
+
+	<dialog
+		android:id="@+id/postCommentDialog"
+		android:name="com.outfit.client.android.ui.postcomment.PostCommentDialog">
+
+		<argument
+			android:name="shotId"
+			app:argType="long" />
+		<argument
+			android:name="replyToComment"
+			app:argType="com.outfit.client.android.data.model.Comment"
+			app:nullable="true" />
+	</dialog>
+
+	<dialog
+		android:id="@+id/deleteShotConfirmDialog"
+		android:name="com.outfit.client.android.ui.deleteshot.DeleteShotConfirmDialog">
+
+		<argument
+			android:name="shotId"
+			app:argType="long" />
+	</dialog>
+	<dialog
+		android:id="@+id/deleteCommentConfirmDialog"
+		android:name="com.outfit.client.android.ui.deletecomment.DeleteCommentConfirmDialog">
+
+		<argument
+			android:name="shotId"
+			app:argType="long" />
+		<argument
+			android:name="commentId"
+			app:argType="long" />
+	</dialog>
+	<dialog
+		android:id="@+id/deleteNotificationConfirmDialog"
+		android:name="com.outfit.client.android.ui.deletenotificationconfirm.DeleteNotificationConfirmDialog">
+
+		<argument
+			android:name="notificationId"
+			app:argType="long" />
+	</dialog>
+
+	<fragment
+		android:id="@+id/viewShotFragment"
+		android:name="com.outfit.client.android.ui.viewshot.ViewShotFragment"
+		android:label="@string/title_shot">
+
+		<argument
+			android:name="shotId"
+			app:argType="long" />
+		<argument
+			android:name="cacheType"
+			app:argType="com.outfit.client.android.data.CacheType"
+			app:nullable="true" />
+		<action
+			android:id="@+id/action_viewShotFragment_to_closetFragment"
+			app:destination="@id/closetFragment" />
+		<action
+			android:id="@+id/action_viewShotFragment_to_viewItemTagFragment"
+			app:destination="@id/viewItemTagFragment" />
+		<action
+			android:id="@+id/action_viewShotFragment_to_viewHashTagFragment"
+			app:destination="@id/viewHashTagFragment" />
+		<action
+			android:id="@+id/action_viewShotFragment_to_postCommentDialog"
+			app:destination="@id/postCommentDialog" />
+	</fragment>
+	<fragment
+		android:id="@+id/viewCommentsFragment"
+		android:name="com.outfit.client.android.ui.viewcomments.ViewCommentsFragment"
+		android:label="@string/title_comments">
+
+		<argument
+			android:name="shotId"
+			app:argType="long" />
+		<argument
+			android:name="nullableScrollToCommentId"
+			android:defaultValue="0L"
+			app:argType="long" />
+		<argument
+			android:name="showShotPreview"
+			android:defaultValue="false"
+			app:argType="boolean" />
+		<action
+			android:id="@+id/action_viewCommentDialog_to_closetFragment"
+			app:destination="@id/closetFragment" />
+		<action
+			android:id="@+id/action_viewCommentDialog_to_viewItemTagFragment"
+			app:destination="@id/viewItemTagFragment" />
+		<action
+			android:id="@+id/action_viewCommentDialog_to_viewHashTagFragment"
+			app:destination="@id/viewHashTagFragment" />
+		<action
+			android:id="@+id/action_viewCommentDialog_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+		<action
+			android:id="@+id/action_viewCommentDialog_to_postCommentDialog"
+			app:destination="@id/postCommentDialog" />
+	</fragment>
+	<fragment
+		android:id="@+id/viewFollowFragment"
+		android:name="com.outfit.client.android.ui.viewfollow.ViewFollowFragment">
+		<argument
+			android:name="personId"
+			app:argType="long" />
+		<argument
+			android:name="viewFollowingFirst"
+			app:argType="boolean" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/searchFragment"
+		android:name="com.outfit.client.android.ui.search.SearchFragment">
+		<action
+			android:id="@+id/action_searchFragment_to_viewItemTagFragment"
+			app:destination="@id/viewItemTagFragment" />
+		<action
+			android:id="@+id/action_searchFragment_to_viewHashTagFragment"
+			app:destination="@id/viewHashTagFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/viewItemTagFragment"
+		android:name="com.outfit.client.android.ui.viewitemtag.ViewItemTagFragment">
+
+		<argument
+			android:name="brandCode"
+			app:argType="string" />
+		<argument
+			android:name="productCode"
+			android:defaultValue="@null"
+			app:argType="string"
+			app:nullable="true" />
+		<action
+			android:id="@+id/action_viewItemTagFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+	</fragment>
+	<fragment
+		android:id="@+id/viewHashTagFragment"
+		android:name="com.outfit.client.android.ui.viewhashtag.ViewHashTagFragment">
+
+		<argument
+			android:name="hashTag"
+			app:argType="string" />
+		<action
+			android:id="@+id/action_viewHashTagFragment_to_viewShotFragment"
+			app:destination="@id/viewShotFragment" />
+	</fragment>
+
+	<navigation
+		android:id="@+id/anonymous_verification_navigation"
+		app:startDestination="@id/requestCodeFragment">
+
+		<argument
+			android:name="purpose"
+			app:argType="com.outfit.client.android.data.AnonymousVerificationPurpose" />
+		<argument
+			android:name="popUpTo"
+			android:defaultValue="@null"
+			app:argType="com.outfit.client.android.data.PopUpTo"
+			app:nullable="true" />
+
+		<fragment
+			android:id="@+id/requestCodeFragment"
+			android:name="com.outfit.client.android.ui.anonymousverification.request.RequestCodeFragment">
+			<argument
+				android:name="purpose"
+				app:argType="com.outfit.client.android.data.AnonymousVerificationPurpose" />
+
+			<argument
+				android:name="popUpTo"
+				android:defaultValue="@null"
+				app:argType="com.outfit.client.android.data.PopUpTo"
+				app:nullable="true" />
+			<action
+				android:id="@+id/action_requestCodeFragment_to_verifyCodeFragment"
+				app:destination="@id/verifyCodeFragment" />
+		</fragment>
+
+		<fragment
+			android:id="@+id/verifyCodeFragment"
+			android:name="com.outfit.client.android.ui.anonymousverification.verify.VerifyCodeFragment">
+
+			<argument
+				android:name="requestDestinationId"
+				app:argType="integer" />
+
+			<argument
+				android:name="requestVerificationPayload"
+				app:argType="com.outfit.client.android.data.payload.PostRequestAnonymousVerificationPayload" />
+		</fragment>
+
+	</navigation>
+</navigation>

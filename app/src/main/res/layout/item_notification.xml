@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:gravity="center"
+	tools:layout_height="wrap_content"
+	tools:layout_width="match_parent"
+	tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+	<ImageView
+		android:id="@+id/item_notification_image_producer_profile"
+		style="@style/Widget.Outfit.Profile.Small"
+		android:layout_marginStart="4dp"
+		android:layout_marginTop="4dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/item_notification_text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="4dp"
+		app:layout_constraintEnd_toStartOf="@+id/item_notification_image_shot_preview"
+		app:layout_constraintStart_toEndOf="@+id/item_notification_image_producer_profile"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="text" />
+
+	<ImageView
+		android:id="@+id/item_notification_image_shot_preview"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="@+id/item_notification_image_producer_profile"
+		app:layout_constraintDimensionRatio="1:1"
+		app:layout_constraintEnd_toStartOf="@+id/item_notification_button_menu"
+		app:layout_constraintTop_toTopOf="@+id/item_notification_image_producer_profile" />
+
+
+	<ImageButton
+		android:id="@+id/item_notification_button_menu"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="@+id/item_notification_image_producer_profile"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/item_notification_image_producer_profile"
+		app:srcCompat="@drawable/ic_menu" />
+
+
+	<LinearLayout
+		android:id="@+id/item_notification_flow_footer"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		app:layout_constraintEnd_toEndOf="@+id/item_notification_text"
+		app:layout_constraintStart_toStartOf="@+id/item_notification_text"
+		app:layout_constraintTop_toBottomOf="@+id/item_notification_text">
+
+		<TextView
+			android:id="@+id/item_notification_text_created_at"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/TextAppearance.Outfit.Caption"
+			tools:text="2000-01-01" />
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_weight="1" />
+	</LinearLayout>
+
+</merge>

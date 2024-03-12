@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:layout_height="wrap_content"
+	tools:layout_width="match_parent"
+	tools:orientation="horizontal"
+	tools:parentTag="android.widget.LinearLayout">
+
+	<ImageView
+		android:id="@+id/item_person_image_person_profile"
+		style="@style/Widget.Outfit.Profile.Small"
+		android:layout_marginStart="@dimen/component_label_horizontal_margin"
+		android:layout_marginEnd="@dimen/component_label_horizontal_margin" />
+
+	<TextView
+		android:id="@+id/item_person_text_tag"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:gravity="start|center"
+		tools:text="\@PERSON" />
+</merge>

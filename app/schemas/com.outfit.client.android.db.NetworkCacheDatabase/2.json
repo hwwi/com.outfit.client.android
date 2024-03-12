@@ -1,0 +1,407 @@
+{
+	"formatVersion": 1,
+	"database": {
+		"version": 2,
+		"identityHash": "513b0968e55b2331554ea8cd9b939d0b",
+		"entities": [
+			{
+				"tableName": "person_detail",
+				"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `profile_image_url` TEXT, `closet_background_image_url` TEXT, `biography` TEXT NOT NULL, `shots_count` INTEGER NOT NULL, `followers_count` INTEGER NOT NULL, `followings_count` INTEGER NOT NULL, `is_viewer_follow` INTEGER, `created_at` INTEGER NOT NULL, `updated_at` INTEGER, PRIMARY KEY(`id`))",
+				"fields": [
+					{
+						"fieldPath": "id",
+						"columnName": "id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "name",
+						"columnName": "name",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "profileImageUrl",
+						"columnName": "profile_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					},
+					{
+						"fieldPath": "closetBackgroundImageUrl",
+						"columnName": "closet_background_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					},
+					{
+						"fieldPath": "biography",
+						"columnName": "biography",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "shotsCount",
+						"columnName": "shots_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "followersCount",
+						"columnName": "followers_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "followingsCount",
+						"columnName": "followings_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "isViewerFollow",
+						"columnName": "is_viewer_follow",
+						"affinity": "INTEGER",
+						"notNull": false
+					},
+					{
+						"fieldPath": "createdAt",
+						"columnName": "created_at",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "updatedAt",
+						"columnName": "updated_at",
+						"affinity": "INTEGER",
+						"notNull": false
+					}
+				],
+				"primaryKey": {
+					"columnNames": [
+						"id"
+					],
+					"autoGenerate": false
+				},
+				"indices": [],
+				"foreignKeys": []
+			},
+			{
+				"tableName": "shot",
+				"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `caption` TEXT NOT NULL, `images_json` TEXT NOT NULL, `likes_count` INTEGER NOT NULL, `comments_count` INTEGER NOT NULL, `is_viewer_like` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `updated_at` INTEGER, `person_id` INTEGER NOT NULL, `person_name` TEXT NOT NULL, `person_profile_image_url` TEXT, PRIMARY KEY(`id`))",
+				"fields": [
+					{
+						"fieldPath": "id",
+						"columnName": "id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "caption",
+						"columnName": "caption",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "images",
+						"columnName": "images_json",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "likesCount",
+						"columnName": "likes_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "commentsCount",
+						"columnName": "comments_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "isViewerLike",
+						"columnName": "is_viewer_like",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "createdAt",
+						"columnName": "created_at",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "updatedAt",
+						"columnName": "updated_at",
+						"affinity": "INTEGER",
+						"notNull": false
+					},
+					{
+						"fieldPath": "person.id",
+						"columnName": "person_id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "person.name",
+						"columnName": "person_name",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "person.profileImageUrl",
+						"columnName": "person_profile_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					}
+				],
+				"primaryKey": {
+					"columnNames": [
+						"id"
+					],
+					"autoGenerate": false
+				},
+				"indices": [],
+				"foreignKeys": []
+			},
+			{
+				"tableName": "shot_cache_id",
+				"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `cache_type` INTEGER NOT NULL, PRIMARY KEY(`id`, `cache_type`), FOREIGN KEY(`id`) REFERENCES `shot`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+				"fields": [
+					{
+						"fieldPath": "id",
+						"columnName": "id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "cacheType",
+						"columnName": "cache_type",
+						"affinity": "INTEGER",
+						"notNull": true
+					}
+				],
+				"primaryKey": {
+					"columnNames": [
+						"id",
+						"cache_type"
+					],
+					"autoGenerate": false
+				},
+				"indices": [],
+				"foreignKeys": [
+					{
+						"table": "shot",
+						"onDelete": "CASCADE",
+						"onUpdate": "CASCADE",
+						"columns": [
+							"id"
+						],
+						"referencedColumns": [
+							"id"
+						]
+					}
+				]
+			},
+			{
+				"tableName": "comment",
+				"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `text` TEXT NOT NULL, `likes_count` INTEGER NOT NULL, `is_viewer_like` INTEGER NOT NULL, `shot_id` INTEGER NOT NULL, `parent_id` INTEGER, `created_at` INTEGER NOT NULL, `updated_at` INTEGER, `person_id` INTEGER NOT NULL, `person_name` TEXT NOT NULL, `person_profile_image_url` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`shot_id`) REFERENCES `shot`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`parent_id`) REFERENCES `comment`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+				"fields": [
+					{
+						"fieldPath": "id",
+						"columnName": "id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "text",
+						"columnName": "text",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "likesCount",
+						"columnName": "likes_count",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "isViewerLike",
+						"columnName": "is_viewer_like",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "shotId",
+						"columnName": "shot_id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "parentId",
+						"columnName": "parent_id",
+						"affinity": "INTEGER",
+						"notNull": false
+					},
+					{
+						"fieldPath": "createdAt",
+						"columnName": "created_at",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "updatedAt",
+						"columnName": "updated_at",
+						"affinity": "INTEGER",
+						"notNull": false
+					},
+					{
+						"fieldPath": "person.id",
+						"columnName": "person_id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "person.name",
+						"columnName": "person_name",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "person.profileImageUrl",
+						"columnName": "person_profile_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					}
+				],
+				"primaryKey": {
+					"columnNames": [
+						"id"
+					],
+					"autoGenerate": false
+				},
+				"indices": [
+					{
+						"name": "index_comment_shot_id",
+						"unique": false,
+						"columnNames": [
+							"shot_id"
+						],
+						"createSql": "CREATE INDEX IF NOT EXISTS `index_comment_shot_id` ON `${TABLE_NAME}` (`shot_id`)"
+					},
+					{
+						"name": "index_comment_parent_id",
+						"unique": false,
+						"columnNames": [
+							"parent_id"
+						],
+						"createSql": "CREATE INDEX IF NOT EXISTS `index_comment_parent_id` ON `${TABLE_NAME}` (`parent_id`)"
+					}
+				],
+				"foreignKeys": [
+					{
+						"table": "shot",
+						"onDelete": "CASCADE",
+						"onUpdate": "CASCADE",
+						"columns": [
+							"shot_id"
+						],
+						"referencedColumns": [
+							"id"
+						]
+					},
+					{
+						"table": "comment",
+						"onDelete": "CASCADE",
+						"onUpdate": "CASCADE",
+						"columns": [
+							"parent_id"
+						],
+						"referencedColumns": [
+							"id"
+						]
+					}
+				]
+			},
+			{
+				"tableName": "notification",
+				"createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `shot_id` INTEGER NOT NULL, `shot_preview_image_url` TEXT, `comment_id` INTEGER, `comment_text` TEXT, `created_at` INTEGER NOT NULL, `producer_id` INTEGER NOT NULL, `producer_name` TEXT NOT NULL, `producer_profile_image_url` TEXT, PRIMARY KEY(`id`))",
+				"fields": [
+					{
+						"fieldPath": "id",
+						"columnName": "id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "type",
+						"columnName": "type",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "shotId",
+						"columnName": "shot_id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "shotPreviewImageUrl",
+						"columnName": "shot_preview_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					},
+					{
+						"fieldPath": "commentId",
+						"columnName": "comment_id",
+						"affinity": "INTEGER",
+						"notNull": false
+					},
+					{
+						"fieldPath": "commentText",
+						"columnName": "comment_text",
+						"affinity": "TEXT",
+						"notNull": false
+					},
+					{
+						"fieldPath": "createdAt",
+						"columnName": "created_at",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "producer.id",
+						"columnName": "producer_id",
+						"affinity": "INTEGER",
+						"notNull": true
+					},
+					{
+						"fieldPath": "producer.name",
+						"columnName": "producer_name",
+						"affinity": "TEXT",
+						"notNull": true
+					},
+					{
+						"fieldPath": "producer.profileImageUrl",
+						"columnName": "producer_profile_image_url",
+						"affinity": "TEXT",
+						"notNull": false
+					}
+				],
+				"primaryKey": {
+					"columnNames": [
+						"id"
+					],
+					"autoGenerate": false
+				},
+				"indices": [],
+				"foreignKeys": []
+			}
+		],
+		"views": [],
+		"setupQueries": [
+			"CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+			"INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '513b0968e55b2331554ea8cd9b939d0b')"
+		]
+	}
+}

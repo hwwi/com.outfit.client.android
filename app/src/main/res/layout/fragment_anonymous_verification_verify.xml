@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingBottom="@dimen/activity_vertical_margin">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+
+			<TextView
+				android:id="@+id/anonymous_verification_verify_text_head"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="@string/msg_enter_the_verification_code_sent_to"
+				android:textAppearance="@style/TextAppearance.Outfit.Subtitle1" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/anonymous_verification_verify_button_request_new_code"
+				style="@style/Widget.MaterialComponents.Button.TextButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end"
+				android:text="@string/str_request_new_code" />
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/anonymous_verification_verify_layout_code"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/str_verification_code"
+				tools:ignore="MissingConstraints">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/anonymous_verification_verify_edit_code"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:inputType="textCapCharacters"
+					android:maxLines="1" />
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/anonymous_verification_verify_button_next"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:enabled="false"
+				android:text="@string/str_next" />
+		</LinearLayout>
+
+	</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

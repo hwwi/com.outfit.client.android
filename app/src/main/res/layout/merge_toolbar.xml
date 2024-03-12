@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="kotlin.Unit" />
+
+		<import type="android.view.View" />
+
+		<import type="com.outfit.client.android.data.NetworkState" />
+
+		<variable
+			name="networkState"
+			type="NetworkState&lt;Unit>" />
+	</data>
+
+	<merge
+		tools:layout_height="wrap_content"
+		tools:layout_width="match_parent"
+		tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<com.google.android.material.appbar.AppBarLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<com.google.android.material.appbar.MaterialToolbar
+					android:id="@+id/toolbar"
+					android:layout_width="match_parent"
+					android:layout_height="?attr/actionBarSize"
+					tools:title="@string/app_name" />
+			</com.google.android.material.appbar.AppBarLayout>
+
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<ProgressBar
+			android:id="@+id/progress"
+			style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:indeterminate="true"
+			android:visibility="gone"
+			app:layout_constraintBottom_toBottomOf="@+id/layout_toolbar"
+			app:visibleOrGone="@{networkState instanceof NetworkState.Fetching}"
+			tools:visibility="visible" />
+	</merge>
+</layout>

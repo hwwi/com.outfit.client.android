@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<!--Base custom theme which will be shared between both light and dark theme variants-->
+	<style name="Theme.Outfit" parent="Base.Theme.Outfit" >
+		<item name="colorPrimary">@color/blue_grey_300</item>
+		<item name="colorPrimaryVariant">@color/blue_grey_700</item>
+		<item name="colorSecondary">@color/green_200</item>
+		<item name="colorSecondaryVariant">@color/green_500</item>
+		<item name="android:colorBackground">@color/white_50</item>
+		<item name="colorSurface">@color/white_50</item>
+		<item name="colorError">@color/red_600</item>
+		<item name="colorOnPrimary">@color/white_50</item>
+		<item name="colorOnSecondary">@color/black_900</item>
+		<item name="colorOnBackground">@color/black_900</item>
+		<item name="colorOnSurface">@color/black_900</item>
+		<item name="colorOnError">@color/white_50</item>
+	</style>
+
+	<style name="Base.Theme.Outfit" parent="Theme.MaterialComponents.DayNight.NoActionBar" tools:ignore="NewApi">
+		<!--Material type attributes-->
+		<item name="textAppearanceHeadline1">@style/TextAppearance.Outfit.Headline1</item>
+		<item name="textAppearanceHeadline2">@style/TextAppearance.Outfit.Headline2</item>
+		<item name="textAppearanceHeadline3">@style/TextAppearance.Outfit.Headline3</item>
+		<item name="textAppearanceHeadline4">@style/TextAppearance.Outfit.Headline4</item>
+		<item name="textAppearanceHeadline5">@style/TextAppearance.Outfit.Headline5</item>
+		<item name="textAppearanceHeadline6">@style/TextAppearance.Outfit.Headline6</item>
+		<item name="textAppearanceSubtitle1">@style/TextAppearance.Outfit.Subtitle1</item>
+		<item name="textAppearanceSubtitle2">@style/TextAppearance.Outfit.Subtitle2</item>
+		<item name="textAppearanceBody1">@style/TextAppearance.Outfit.Body1</item>
+		<item name="textAppearanceBody2">@style/TextAppearance.Outfit.Body2</item>
+		<item name="textAppearanceButton">@style/TextAppearance.Outfit.Button</item>
+		<item name="textAppearanceCaption">@style/TextAppearance.Outfit.Caption</item>
+		<item name="textAppearanceOverline">@style/TextAppearance.Outfit.Overline</item>
+
+		<item name="alphaEmphasisHigh">@dimen/alpha_emphasis_high</item>
+		<item name="alphaEmphasisMedium">@dimen/alpha_emphasis_medium</item>
+		<item name="alphaEmphasisDisabled">@dimen/alpha_emphasis_disabled</item>
+
+		<!--Material shape attributes-->
+		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Outfit.SmallComponent
+		</item>
+		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Outfit.MediumComponent
+		</item>
+		<item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Outfit.LargeComponent
+		</item>
+
+		<!--Component styles-->
+		<item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert
+		</item>
+		<item name="bottomSheetDialogTheme">@style/ThemeOverlay.Outfit.BottomSheetDialog</item>
+		<item name="navigationViewStyle">@style/Widget.Outfit.NavigationView</item>
+		<item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
+		<item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Surface</item>
+
+		<item name="imageButtonStyle">@style/Widget.Outfit.IconButton</item>
+		<item name="textInputStyle">@style/Widget.Outfit.TextInputLayout.OutlinedBox.Dense</item>
+		<!--		<item name="tabStyle">@style/Widget.MaterialComponents.TabLayout.Colored</item>-->
+		<!--		<item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>-->
+		<item name="materialButtonStyle">@style/Widget.Outfit.Button</item>
+		<item name="materialButtonTextStyle">
+			@style/Widget.MaterialComponents.Button.TextButton.Colored
+		</item>
+
+
+		<item name="android:statusBarColor">?attr/colorSurface</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:navigationBarColor">?android:attr/colorBackground</item>
+		<item name="android:windowLightNavigationBar">true</item>
+		<item name="android:navigationBarDividerColor">?attr/colorControlHighlight</item>
+	</style>
+
+	<!--@Deprecated-->
+	<style name="Theme.Outfit.DialogWhenLarge"></style>
+
+	<style name="ThemeOverlay.MaterialComponents.Dialog.Alert.Transparent" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:gravity="center"
+	tools:layout_height="wrap_content"
+	tools:layout_width="match_parent"
+	tools:orientation="horizontal"
+	tools:parentTag="android.widget.LinearLayout">
+
+	<TextView
+		android:id="@+id/text_separator_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/component_label_horizontal_margin"
+		android:textAppearance="@style/TextAppearance.Outfit.Headline6"
+		android:layout_weight="1"
+		tools:text="text separator" />
+
+</merge>

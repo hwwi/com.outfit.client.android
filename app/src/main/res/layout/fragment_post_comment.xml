@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<TextView
+		android:id="@+id/post_comment_text_reply_to"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorSecondary"
+		android:padding="4dp"
+		android:text="@string/msg_reply_to"
+		tools:ignore="MissingConstraints" />
+
+	<androidx.constraintlayout.helper.widget.Flow
+		android:id="@+id/post_comment_flow_post"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorSurface"
+		app:constraint_referenced_ids="post_comment_edit_comment_text,post_comment_button_post"
+		app:layout_constraintTop_toBottomOf="@+id/post_comment_text_reply_to" />
+
+	<com.google.android.material.textfield.TextInputEditText
+		android:id="@+id/post_comment_edit_comment_text"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:hint="@string/viewshot_hint_add_a_comment"
+		android:maxLines="10"
+		app:layout_constraintHorizontal_weight="1"
+		tools:ignore="MissingConstraints" />
+
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/post_comment_button_post"
+		style="@style/Widget.MaterialComponents.Button.TextButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/str_post"
+		tools:ignore="MissingConstraints" />
+
+	<ProgressBar
+		android:id="@+id/post_comment_progress"
+		style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:indeterminate="true"
+		android:visibility="invisible"
+		app:layout_constraintTop_toBottomOf="@+id/post_comment_flow_post"
+		tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

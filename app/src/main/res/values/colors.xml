@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="transparent">@android:color/transparent</color>
+	<color name="color_tag">#03dac6</color>
+	<color name="default_selected_dot_color">#03dac6</color>
+	<color name="default_dot_color">#018786</color>
+	<color name="selected_image_background">#06000000</color>
+	<color name="gradient_closet_background_end">?android:colorBackground</color>
+
+	<color name="blue_grey_300">#90a4ae</color> <!--Color primary (light)-->
+	<color name="blue_grey_700">#455a64</color> <!--Color primary variant (light)-->
+	<color name="red_600">#b00020</color> <!--Color error (light)-->
+
+	<color name="grey_200">#eeeeee</color> <!--Color primary (dark)-->
+	<color name="grey_600">#757575</color> <!--Color primary variant (dark)-->
+	<color name="red_200">#cf6679</color> <!--Color error (dark)-->
+
+	<color name="green_200">#03dac6</color> <!--Color secondary-->
+	<color name="green_500">#018786</color> <!--Color secondary variant-->
+
+	<!--Color surface (light), color on error (light), -->
+	<!--color on surface (dark), color on surface (dark)-->
+	<color name="white_50">#ffffff</color>
+
+	<color name="black_800">#121212</color> <!--Color surface (dark)-->
+	<!--Color on secondary (light), color on background (light),-->
+	<!--color on surface (light)-->
+	<color name="black_900">#000000</color>
+	<color name="blue_grey_800_dark">#102027</color>
+</resources>
